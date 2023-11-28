@@ -1,0 +1,757 @@
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.2 (lin64) Build 2708876 Wed Nov  6 21:39:14 MST 2019
+| Date         : Sat Oct 21 09:16:58 2023
+| Host         : edabknam running 64-bit Ubuntu 20.04.6 LTS
+| Command      : report_drc -file xilinx_pulpissimo_drc_routed.rpt -pb xilinx_pulpissimo_drc_routed.pb -rpx xilinx_pulpissimo_drc_routed.rpx
+| Design       : xilinx_pulpissimo
+| Device       : xc7k325tffg900-2
+| Speed File   : -2
+| Design State : Fully Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Report DRC
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: checkpoint_xilinx_pulpissimo
+      Design limits: <entire design considered>
+           Ruledeck: default
+             Max violations: <unlimited>
+             Violations found: 132
++-------------+------------------+-------------------------------------------------------------+------------+
+| Rule        | Severity         | Description                                                 | Violations |
++-------------+------------------+-------------------------------------------------------------+------------+
+| NSTD-1      | Critical Warning | Unspecified I/O Standard                                    | 1          |
+| UCIO-1      | Critical Warning | Unconstrained Logical Port                                  | 1          |
+| CFGBVS-1    | Warning          | Missing CFGBVS and CONFIG_VOLTAGE Design Properties         | 1          |
+| CHECK-3     | Warning          | Report rule limit reached                                   | 1          |
+| DPIP-1      | Warning          | Input pipelining                                            | 24         |
+| DPOP-1      | Warning          | PREG Output pipelining                                      | 11         |
+| DPOP-2      | Warning          | MREG Output pipelining                                      | 10         |
+| PDRC-153    | Warning          | Gated clock check                                           | 30         |
+| PLCK-1      | Warning          | Clock Placer Checks                                         | 1          |
+| PLCK-12     | Warning          | Clock Placer Checks                                         | 1          |
+| PLHOLDVIO-2 | Warning          | Non-Optimal connections which could lead to hold violations | 28         |
+| REQP-1569   | Warning          | connects_D                                                  | 2          |
+| REQP-1839   | Warning          | RAMB36 async control check                                  | 20         |
+| RTSTAT-10   | Warning          | No routable loads                                           | 1          |
++-------------+------------------+-------------------------------------------------------------+------------+
+
+2. REPORT DETAILS
+-----------------
+NSTD-1#1 Critical Warning
+Unspecified I/O Standard  
+6 out of 40 logical ports use I/O standard (IOSTANDARD) value 'DEFAULT', instead of a user assigned specific value. This may cause I/O contention or incompatibility with the board power or connectivity affecting performance, signal integrity or in extreme cases cause damage to the device or the components to which it is connected. To correct this violation, specify all I/O standards. This design will fail to generate a bitstream unless all logical ports have a user specified I/O standard value defined. To allow bitstream creation with unspecified I/O standard values (not recommended), use this command: set_property SEVERITY {Warning} [get_drc_checks NSTD-1].  NOTE: When using the Vivado Runs infrastructure (e.g. launch_runs Tcl command), add this command to a .tcl file and add that file as a pre-hook for write_bitstream step for the implementation run. Problem ports: oled_dc_o, oled_rst_o, oled_spim_sck_o, oled_vbat_o, oled_vdd_o, sdio_reset_o.
+Related violations: <none>
+
+UCIO-1#1 Critical Warning
+Unconstrained Logical Port  
+6 out of 40 logical ports have no user assigned specific location constraint (LOC). This may cause I/O contention or incompatibility with the board power or connectivity affecting performance, signal integrity or in extreme cases cause damage to the device or the components to which it is connected. To correct this violation, specify all pin locations. This design will fail to generate a bitstream unless all logical ports have a user specified site LOC constraint defined.  To allow bitstream creation with unspecified pin locations (not recommended), use this command: set_property SEVERITY {Warning} [get_drc_checks UCIO-1].  NOTE: When using the Vivado Runs infrastructure (e.g. launch_runs Tcl command), add this command to a .tcl file and add that file as a pre-hook for write_bitstream step for the implementation run.  Problem ports: oled_dc_o, oled_rst_o, oled_spim_sck_o, oled_vbat_o, oled_vdd_o, sdio_reset_o.
+Related violations: <none>
+
+CFGBVS-1#1 Warning
+Missing CFGBVS and CONFIG_VOLTAGE Design Properties  
+Neither the CFGBVS nor CONFIG_VOLTAGE voltage property is set in the current_design.  Configuration bank voltage select (CFGBVS) must be set to VCCO or GND, and CONFIG_VOLTAGE must be set to the correct configuration voltage, in order to determine the I/O voltage support for the pins in bank 0.  It is suggested to specify these either using the 'Edit Device Properties' function in the GUI or directly in the XDC file using the following syntax:
+
+ set_property CFGBVS value1 [current_design]
+ #where value1 is either VCCO or GND
+
+ set_property CONFIG_VOLTAGE value2 [current_design]
+ #where value2 is the voltage provided to configuration bank 0
+
+Refer to the device configuration user guide for more information.
+Related violations: <none>
+
+CHECK-3#1 Warning
+Report rule limit reached  
+REQP-1839 rule limit reached: 20 violations have been found.
+Related violations: <none>
+
+DPIP-1#1 Warning
+Input pipelining  
+DSP i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/ex_stage_i/mult_i/dot_short_mul[1] input i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/ex_stage_i/mult_i/dot_short_mul[1]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#2 Warning
+Input pipelining  
+DSP i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/ex_stage_i/mult_i/dot_short_mul[1] input i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/ex_stage_i/mult_i/dot_short_mul[1]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#3 Warning
+Input pipelining  
+DSP i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/ex_stage_i/mult_i/dot_short_result input i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/ex_stage_i/mult_i/dot_short_result/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#4 Warning
+Input pipelining  
+DSP i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/ex_stage_i/mult_i/dot_short_result input i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/ex_stage_i/mult_i/dot_short_result/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#5 Warning
+Input pipelining  
+DSP i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/ex_stage_i/mult_i/dot_short_result input i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/ex_stage_i/mult_i/dot_short_result/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#6 Warning
+Input pipelining  
+DSP i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/ex_stage_i/mult_i/p_2_out input i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/ex_stage_i/mult_i/p_2_out/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#7 Warning
+Input pipelining  
+DSP i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/ex_stage_i/mult_i/p_2_out input i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/ex_stage_i/mult_i/p_2_out/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#8 Warning
+Input pipelining  
+DSP i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/ex_stage_i/mult_i/p_2_out__0 input i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/ex_stage_i/mult_i/p_2_out__0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#9 Warning
+Input pipelining  
+DSP i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/ex_stage_i/mult_i/p_2_out__0 input i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/ex_stage_i/mult_i/p_2_out__0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#10 Warning
+Input pipelining  
+DSP i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/ex_stage_i/mult_i/p_2_out__1 input i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/ex_stage_i/mult_i/p_2_out__1/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#11 Warning
+Input pipelining  
+DSP i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/ex_stage_i/mult_i/short_mac input i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/ex_stage_i/mult_i/short_mac/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#12 Warning
+Input pipelining  
+DSP i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/ex_stage_i/mult_i/short_mac input i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/ex_stage_i/mult_i/short_mac/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#13 Warning
+Input pipelining  
+DSP i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/ex_stage_i/mult_i/short_mac input i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/ex_stage_i/mult_i/short_mac/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#14 Warning
+Input pipelining  
+DSP i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/ex_stage_i/mult_i/short_mul input i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/ex_stage_i/mult_i/short_mul/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#15 Warning
+Input pipelining  
+DSP i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/ex_stage_i/mult_i/short_mul input i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/ex_stage_i/mult_i/short_mul/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#16 Warning
+Input pipelining  
+DSP i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/fp_wrapper_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/product input i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/fp_wrapper_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/product/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#17 Warning
+Input pipelining  
+DSP i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/fp_wrapper_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/product input i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/fp_wrapper_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/product/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#18 Warning
+Input pipelining  
+DSP i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/fp_wrapper_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/product__0 input i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/fp_wrapper_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/product__0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#19 Warning
+Input pipelining  
+DSP i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_filter/u_filter_au/s_mac0 input i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_filter/u_filter_au/s_mac0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#20 Warning
+Input pipelining  
+DSP i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_filter/u_filter_au/s_mac0 input i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_filter/u_filter_au/s_mac0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#21 Warning
+Input pipelining  
+DSP i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_filter/u_filter_au/s_mac0__0 input i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_filter/u_filter_au/s_mac0__0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#22 Warning
+Input pipelining  
+DSP i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_filter/u_filter_au/s_mac0__0 input i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_filter/u_filter_au/s_mac0__0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#23 Warning
+Input pipelining  
+DSP i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_filter/u_filter_au/s_mac0__1 input i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_filter/u_filter_au/s_mac0__1/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#24 Warning
+Input pipelining  
+DSP i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_filter/u_filter_au/s_mac0__1 input i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_filter/u_filter_au/s_mac0__1/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPOP-1#1 Warning
+PREG Output pipelining  
+DSP i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/ex_stage_i/mult_i/dot_short_mul[1] output i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/ex_stage_i/mult_i/dot_short_mul[1]/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-1#2 Warning
+PREG Output pipelining  
+DSP i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/ex_stage_i/mult_i/dot_short_result output i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/ex_stage_i/mult_i/dot_short_result/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-1#3 Warning
+PREG Output pipelining  
+DSP i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/ex_stage_i/mult_i/p_2_out output i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/ex_stage_i/mult_i/p_2_out/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-1#4 Warning
+PREG Output pipelining  
+DSP i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/ex_stage_i/mult_i/p_2_out__0 output i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/ex_stage_i/mult_i/p_2_out__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-1#5 Warning
+PREG Output pipelining  
+DSP i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/ex_stage_i/mult_i/p_2_out__1 output i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/ex_stage_i/mult_i/p_2_out__1/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-1#6 Warning
+PREG Output pipelining  
+DSP i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/ex_stage_i/mult_i/short_mac output i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/ex_stage_i/mult_i/short_mac/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-1#7 Warning
+PREG Output pipelining  
+DSP i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/fp_wrapper_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/product output i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/fp_wrapper_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/product/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-1#8 Warning
+PREG Output pipelining  
+DSP i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/fp_wrapper_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/product__0 output i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/fp_wrapper_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/product__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-1#9 Warning
+PREG Output pipelining  
+DSP i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_filter/u_filter_au/s_mac0 output i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_filter/u_filter_au/s_mac0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-1#10 Warning
+PREG Output pipelining  
+DSP i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_filter/u_filter_au/s_mac0__0 output i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_filter/u_filter_au/s_mac0__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-1#11 Warning
+PREG Output pipelining  
+DSP i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_filter/u_filter_au/s_mac0__1 output i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_filter/u_filter_au/s_mac0__1/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-2#1 Warning
+MREG Output pipelining  
+DSP i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/ex_stage_i/mult_i/dot_short_mul[1] multiplier stage i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/ex_stage_i/mult_i/dot_short_mul[1]/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#2 Warning
+MREG Output pipelining  
+DSP i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/ex_stage_i/mult_i/dot_short_result multiplier stage i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/ex_stage_i/mult_i/dot_short_result/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#3 Warning
+MREG Output pipelining  
+DSP i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/ex_stage_i/mult_i/p_2_out multiplier stage i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/ex_stage_i/mult_i/p_2_out/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#4 Warning
+MREG Output pipelining  
+DSP i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/ex_stage_i/mult_i/p_2_out__0 multiplier stage i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/ex_stage_i/mult_i/p_2_out__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#5 Warning
+MREG Output pipelining  
+DSP i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/ex_stage_i/mult_i/p_2_out__1 multiplier stage i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/ex_stage_i/mult_i/p_2_out__1/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#6 Warning
+MREG Output pipelining  
+DSP i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/fp_wrapper_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/product multiplier stage i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/fp_wrapper_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/product/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#7 Warning
+MREG Output pipelining  
+DSP i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/fp_wrapper_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/product__0 multiplier stage i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/fp_wrapper_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/product__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#8 Warning
+MREG Output pipelining  
+DSP i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_filter/u_filter_au/s_mac0 multiplier stage i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_filter/u_filter_au/s_mac0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#9 Warning
+MREG Output pipelining  
+DSP i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_filter/u_filter_au/s_mac0__0 multiplier stage i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_filter/u_filter_au/s_mac0__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#10 Warning
+MREG Output pipelining  
+DSP i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_filter/u_filter_au/s_mac0__1 multiplier stage i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_filter/u_filter_au/s_mac0__1/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+PDRC-153#1 Warning
+Gated clock check  
+Net i_pulpissimo/safe_domain_i/pad_control_i/cam_pclk_o is a gated clock net sourced by a combinational pin i_pulpissimo/safe_domain_i/pad_control_i/cam_pclk_o_INST_0/O, cell i_pulpissimo/safe_domain_i/pad_control_i/cam_pclk_o_INST_0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#2 Warning
+Gated clock check  
+Net i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/sleep_unit_i/core_clock_gate_i/i_pulp_clock_gating/clk_o is a gated clock net sourced by a combinational pin i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/sleep_unit_i/core_clock_gate_i/i_pulp_clock_gating/clk_o_INST_0/O, cell i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/sleep_unit_i/core_clock_gate_i/i_pulp_clock_gating/clk_o_INST_0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#3 Warning
+Gated clock check  
+Net i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/i_clk_gate_timer0/clk_o is a gated clock net sourced by a combinational pin i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/i_clk_gate_timer0/clk_o_INST_0/O, cell i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/i_clk_gate_timer0/clk_o_INST_0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#4 Warning
+Gated clock check  
+Net i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/i_clk_gate_timer1/clk_o is a gated clock net sourced by a combinational pin i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/i_clk_gate_timer1/clk_o_INST_0/O, cell i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/i_clk_gate_timer1/clk_o_INST_0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#5 Warning
+Gated clock check  
+Net i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/i_clk_gate_timer2/clk_o is a gated clock net sourced by a combinational pin i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/i_clk_gate_timer2/clk_o_INST_0/O, cell i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/i_clk_gate_timer2/clk_o_INST_0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#6 Warning
+Gated clock check  
+Net i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/i_clk_gate_timer3/clk_o is a gated clock net sourced by a combinational pin i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/i_clk_gate_timer3/clk_o_INST_0/O, cell i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/i_clk_gate_timer3/clk_o_INST_0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#7 Warning
+Gated clock check  
+Net i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_clkws_gen/i_master_cg/clk_o is a gated clock net sourced by a combinational pin i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_clkws_gen/i_master_cg/clk_o_INST_0/O, cell i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_clkws_gen/i_master_cg/clk_o_INST_0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#8 Warning
+Gated clock check  
+Net i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_clkws_gen/i_master_cg_i_1_n_0 is a gated clock net sourced by a combinational pin i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_clkws_gen/i_master_cg_i_1/O, cell i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_clkws_gen/i_master_cg_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#9 Warning
+Gated clock check  
+Net i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_clkws_gen/i_slave_cg/clk_o is a gated clock net sourced by a combinational pin i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_clkws_gen/i_slave_cg/clk_o_INST_0/O, cell i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_clkws_gen/i_slave_cg/clk_o_INST_0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#10 Warning
+Gated clock check  
+Net i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_clkws_gen/s_clk_slave is a gated clock net sourced by a combinational pin i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_clkws_gen/pad_slave_sck_o_INST_0_i_1/O, cell i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_clkws_gen/pad_slave_sck_o_INST_0_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#11 Warning
+Gated clock check  
+Net i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_sdio/u_clockgen/i_clk_gate/clk_o is a gated clock net sourced by a combinational pin i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_sdio/u_clockgen/i_clk_gate/clk_o_INST_0/O, cell i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_sdio/u_clockgen/i_clk_gate/clk_o_INST_0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#12 Warning
+Gated clock check  
+Net i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_sdio/u_clockgen/s_clk_out_dft is a gated clock net sourced by a combinational pin i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_sdio/u_clockgen/i_clk_gate_i_1/O, cell i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_sdio/u_clockgen/i_clk_gate_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#13 Warning
+Gated clock check  
+Net i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_clockgen/i_clk_gate/clk_o is a gated clock net sourced by a combinational pin i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_clockgen/i_clk_gate/clk_o_INST_0/O, cell i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_clockgen/i_clk_gate/clk_o_INST_0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#14 Warning
+Gated clock check  
+Net i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_clockgen/s_clk_out_dft is a gated clock net sourced by a combinational pin i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_clockgen/i_clk_gate_i_1/O, cell i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_clockgen/i_clk_gate_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#15 Warning
+Gated clock check  
+Net i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[0].i_clk_gate_per/i_clk_gate/clk_o is a gated clock net sourced by a combinational pin i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[0].i_clk_gate_per/i_clk_gate/clk_o_INST_0/O, cell i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[0].i_clk_gate_per/i_clk_gate/clk_o_INST_0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#16 Warning
+Gated clock check  
+Net i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[0].i_clk_gate_sys/clk_o is a gated clock net sourced by a combinational pin i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[0].i_clk_gate_sys/clk_o_INST_0/O, cell i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[0].i_clk_gate_sys/clk_o_INST_0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#17 Warning
+Gated clock check  
+Net i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[1].i_clk_gate_per/i_clk_gate/clk_o is a gated clock net sourced by a combinational pin i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[1].i_clk_gate_per/i_clk_gate/clk_o_INST_0/O, cell i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[1].i_clk_gate_per/i_clk_gate/clk_o_INST_0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#18 Warning
+Gated clock check  
+Net i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[1].i_clk_gate_sys/clk_o is a gated clock net sourced by a combinational pin i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[1].i_clk_gate_sys/clk_o_INST_0/O, cell i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[1].i_clk_gate_sys/clk_o_INST_0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#19 Warning
+Gated clock check  
+Net i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[2].i_clk_gate_per/i_clk_gate/clk_o is a gated clock net sourced by a combinational pin i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[2].i_clk_gate_per/i_clk_gate/clk_o_INST_0/O, cell i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[2].i_clk_gate_per/i_clk_gate/clk_o_INST_0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#20 Warning
+Gated clock check  
+Net i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[2].i_clk_gate_sys/clk_o is a gated clock net sourced by a combinational pin i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[2].i_clk_gate_sys/clk_o_INST_0/O, cell i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[2].i_clk_gate_sys/clk_o_INST_0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#21 Warning
+Gated clock check  
+Net i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[3].i_clk_gate_per/i_clk_gate/clk_o is a gated clock net sourced by a combinational pin i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[3].i_clk_gate_per/i_clk_gate/clk_o_INST_0/O, cell i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[3].i_clk_gate_per/i_clk_gate/clk_o_INST_0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#22 Warning
+Gated clock check  
+Net i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[3].i_clk_gate_sys/clk_o is a gated clock net sourced by a combinational pin i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[3].i_clk_gate_sys/clk_o_INST_0/O, cell i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[3].i_clk_gate_sys/clk_o_INST_0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#23 Warning
+Gated clock check  
+Net i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[4].i_clk_gate_per/i_clk_gate/clk_o is a gated clock net sourced by a combinational pin i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[4].i_clk_gate_per/i_clk_gate/clk_o_INST_0/O, cell i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[4].i_clk_gate_per/i_clk_gate/clk_o_INST_0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#24 Warning
+Gated clock check  
+Net i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[4].i_clk_gate_sys/clk_o is a gated clock net sourced by a combinational pin i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[4].i_clk_gate_sys/clk_o_INST_0/O, cell i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[4].i_clk_gate_sys/clk_o_INST_0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#25 Warning
+Gated clock check  
+Net i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[5].i_clk_gate_per/i_clk_gate/clk_o is a gated clock net sourced by a combinational pin i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[5].i_clk_gate_per/i_clk_gate/clk_o_INST_0/O, cell i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[5].i_clk_gate_per/i_clk_gate/clk_o_INST_0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#26 Warning
+Gated clock check  
+Net i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[5].i_clk_gate_sys/clk_o is a gated clock net sourced by a combinational pin i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[5].i_clk_gate_sys/clk_o_INST_0/O, cell i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[5].i_clk_gate_sys/clk_o_INST_0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#27 Warning
+Gated clock check  
+Net i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[6].i_clk_gate_sys/clk_o is a gated clock net sourced by a combinational pin i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[6].i_clk_gate_sys/clk_o_INST_0/O, cell i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[6].i_clk_gate_sys/clk_o_INST_0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#28 Warning
+Gated clock check  
+Net i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[7].i_clk_gate_sys/clk_o is a gated clock net sourced by a combinational pin i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[7].i_clk_gate_sys/clk_o_INST_0/O, cell i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[7].i_clk_gate_sys/clk_o_INST_0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#29 Warning
+Gated clock check  
+Net i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[8].i_clk_gate_per/i_clk_gate/clk_o is a gated clock net sourced by a combinational pin i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[8].i_clk_gate_per/i_clk_gate/clk_o_INST_0/O, cell i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[8].i_clk_gate_per/i_clk_gate/clk_o_INST_0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#30 Warning
+Gated clock check  
+Net i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/i_clk_gate_sys_udma/clk_o is a gated clock net sourced by a combinational pin i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/i_clk_gate_sys_udma/clk_o_INST_0/O, cell i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/i_clk_gate_sys_udma/clk_o_INST_0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PLCK-1#1 Warning
+Clock Placer Checks  
+Sub-optimal placement for a BUFG-BUFG cascade pair. 
+Resolution: A dedicated routing path between the two BUFGs can be used if they are placed in cyclically adjacent BUFG sites and both are in the same half (TOP/BOTTOM) side of an SLR. If this condition cannot be met, it is recommended that a BUFH be connected in series between the two BUFGs to ensure that clock region partitioning will account for the use of a clock spine for this connection.
+ This is normally an ERROR but the CLOCK_DEDICATED_ROUTE constraint is set to FALSE allowing your design to continue. The use of this override is highly discouraged as it may lead to very poor timing results. It is recommended that this error condition be corrected in the design.
+
+	pad_jtag_tck_IBUF_BUFG_inst (BUFG.O) is provisionally placed by clockplacer on BUFGCTRL_X0Y0
+	i_pulpissimo/soc_domain_i/pulp_soc_i/i_dmi_jtag/i_dmi_jtag_tap/i_dft_tck_mux/i_tc_clk_mux2/i_BUFGMUX (BUFGCTRL.I1) is provisionally placed by clockplacer on BUFGCTRL_X0Y3
+
+Related violations: <none>
+
+PLCK-12#1 Warning
+Clock Placer Checks  
+Poor placement for routing between an IO pin and BUFG. 
+Resolution: Poor placement of an IO pin and a BUFG has resulted in the router using a non-dedicated path between the two.  There are several things that could trigger this DRC, each of which can cause unpredictable clock insertion delays that result in poor timing.  This DRC could be caused by any of the following: (a) a clock port was placed on a pin that is not a CCIO-pin (b)the BUFG has not been placed in the same half of the device or SLR as the CCIO-pin (c) a single ended clock has been placed on the N-Side of a differential pair CCIO-pin.
+ This is normally an ERROR but the CLOCK_DEDICATED_ROUTE constraint is set to FALSE allowing your design to continue. The use of this override is highly discouraged as it may lead to very poor timing results. It is recommended that this error condition be corrected in the design.
+
+	pad_jtag_tck_IBUF_inst (IBUF.O) is locked to D29
+	pad_jtag_tck_IBUF_BUFG_inst (BUFG.I) is provisionally placed by clockplacer on BUFGCTRL_X0Y0
+
+Related violations: <none>
+
+PLHOLDVIO-2#1 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT i_pulpissimo/safe_domain_i/pad_control_i/cam_pclk_o_INST_0 is driving clock pin of 258 cells. This could lead to large hold time violations. Involved cells are:
+i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_camera_if/r_b_pix_reg[3], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_camera_if/r_b_pix_reg[4], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_camera_if/r_b_pix_reg[5], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_camera_if/r_b_pix_reg[6], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_camera_if/r_b_pix_reg[7], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_camera_if/r_colcounter_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_camera_if/r_colcounter_reg[10], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_camera_if/r_colcounter_reg[11], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_camera_if/r_colcounter_reg[12], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_camera_if/r_colcounter_reg[13], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_camera_if/r_colcounter_reg[14], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_camera_if/r_colcounter_reg[15], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_camera_if/r_colcounter_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_camera_if/r_colcounter_reg[2], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_camera_if/r_colcounter_reg[3] (the first 15 of 258 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#2 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/sleep_unit_i/core_clock_gate_i/i_pulp_clock_gating/clk_o_INST_0 is driving clock pin of 2656 cells. This could lead to large hold time violations. Involved cells are:
+i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/cs_registers_i/dcsr_q_reg[cause][6], i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/cs_registers_i/dcsr_q_reg[cause][7], i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/cs_registers_i/dcsr_q_reg[cause][8], i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/cs_registers_i/dcsr_q_reg[ebreakm], i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/cs_registers_i/dcsr_q_reg[prv][1], i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/cs_registers_i/dcsr_q_reg[step], i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/cs_registers_i/dcsr_q_reg[stepie], i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/cs_registers_i/depc_q_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/cs_registers_i/depc_q_reg[10], i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/cs_registers_i/depc_q_reg[11], i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/cs_registers_i/depc_q_reg[12], i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/cs_registers_i/depc_q_reg[13], i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/cs_registers_i/depc_q_reg[14], i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/cs_registers_i/depc_q_reg[15], i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.FC_CORE_i/cs_registers_i/depc_q_reg[16] (the first 15 of 2656 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#3 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/i_clk_gate_timer0/clk_o_INST_0 is driving clock pin of 171 cells. This could lead to large hold time violations. Involved cells are:
+i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim0/u_comp_ch0/r_comp_op_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim0/u_comp_ch0/r_comp_op_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim0/u_comp_ch0/r_comp_op_reg[2], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim0/u_comp_ch0/r_comp_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim0/u_comp_ch0/r_comp_reg[10], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim0/u_comp_ch0/r_comp_reg[11], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim0/u_comp_ch0/r_comp_reg[12], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim0/u_comp_ch0/r_comp_reg[13], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim0/u_comp_ch0/r_comp_reg[14], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim0/u_comp_ch0/r_comp_reg[15], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim0/u_comp_ch0/r_comp_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim0/u_comp_ch0/r_comp_reg[2], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim0/u_comp_ch0/r_comp_reg[3], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim0/u_comp_ch0/r_comp_reg[4], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim0/u_comp_ch0/r_comp_reg[5] (the first 15 of 171 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#4 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/i_clk_gate_timer1/clk_o_INST_0 is driving clock pin of 171 cells. This could lead to large hold time violations. Involved cells are:
+i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim1/u_comp_ch0/r_comp_op_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim1/u_comp_ch0/r_comp_op_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim1/u_comp_ch0/r_comp_op_reg[2], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim1/u_comp_ch0/r_comp_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim1/u_comp_ch0/r_comp_reg[10], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim1/u_comp_ch0/r_comp_reg[11], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim1/u_comp_ch0/r_comp_reg[12], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim1/u_comp_ch0/r_comp_reg[13], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim1/u_comp_ch0/r_comp_reg[14], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim1/u_comp_ch0/r_comp_reg[15], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim1/u_comp_ch0/r_comp_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim1/u_comp_ch0/r_comp_reg[2], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim1/u_comp_ch0/r_comp_reg[3], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim1/u_comp_ch0/r_comp_reg[4], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim1/u_comp_ch0/r_comp_reg[5] (the first 15 of 171 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#5 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/i_clk_gate_timer2/clk_o_INST_0 is driving clock pin of 171 cells. This could lead to large hold time violations. Involved cells are:
+i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim2/u_comp_ch0/r_comp_op_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim2/u_comp_ch0/r_comp_op_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim2/u_comp_ch0/r_comp_op_reg[2], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim2/u_comp_ch0/r_comp_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim2/u_comp_ch0/r_comp_reg[10], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim2/u_comp_ch0/r_comp_reg[11], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim2/u_comp_ch0/r_comp_reg[12], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim2/u_comp_ch0/r_comp_reg[13], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim2/u_comp_ch0/r_comp_reg[14], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim2/u_comp_ch0/r_comp_reg[15], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim2/u_comp_ch0/r_comp_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim2/u_comp_ch0/r_comp_reg[2], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim2/u_comp_ch0/r_comp_reg[3], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim2/u_comp_ch0/r_comp_reg[4], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim2/u_comp_ch0/r_comp_reg[5] (the first 15 of 171 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#6 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/i_clk_gate_timer3/clk_o_INST_0 is driving clock pin of 171 cells. This could lead to large hold time violations. Involved cells are:
+i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim3/u_comp_ch0/r_comp_op_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim3/u_comp_ch0/r_comp_op_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim3/u_comp_ch0/r_comp_op_reg[2], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim3/u_comp_ch0/r_comp_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim3/u_comp_ch0/r_comp_reg[10], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim3/u_comp_ch0/r_comp_reg[11], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim3/u_comp_ch0/r_comp_reg[12], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim3/u_comp_ch0/r_comp_reg[13], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim3/u_comp_ch0/r_comp_reg[14], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim3/u_comp_ch0/r_comp_reg[15], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim3/u_comp_ch0/r_comp_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim3/u_comp_ch0/r_comp_reg[2], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim3/u_comp_ch0/r_comp_reg[3], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim3/u_comp_ch0/r_comp_reg[4], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_adv_timer/u_tim3/u_comp_ch0/r_comp_reg[5] (the first 15 of 171 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#7 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_clkws_gen/i_master_cg/clk_o_INST_0 is driving clock pin of 19 cells. This could lead to large hold time violations. Involved cells are:
+i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_master/FSM_sequential_r_state_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_master/FSM_sequential_r_state_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_master/r_count_bit_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_master/r_count_bit_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_master/r_count_bit_reg[2], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_master/r_count_bit_reg[3], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_master/r_count_bit_reg[4], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_master/r_ws_sync_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/u_dc_fifo_tx/i_cdc_fifo/i_dst/gen_sync[0].i_sync/reg_q_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/u_dc_fifo_tx/i_cdc_fifo/i_dst/gen_sync[0].i_sync/reg_q_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/u_dc_fifo_tx/i_cdc_fifo/i_dst/gen_sync[1].i_sync/reg_q_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/u_dc_fifo_tx/i_cdc_fifo/i_dst/gen_sync[1].i_sync/reg_q_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/u_dc_fifo_tx/i_cdc_fifo/i_dst/gen_sync[2].i_sync/reg_q_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/u_dc_fifo_tx/i_cdc_fifo/i_dst/gen_sync[2].i_sync/reg_q_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/u_dc_fifo_tx/i_cdc_fifo/i_dst/i_spill_register/spill_register_flushable_i/gen_spill_reg.a_full_q_reg (the first 15 of 19 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#8 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_clkws_gen/i_master_cg_i_1 is driving clock pin of 11 cells. This could lead to large hold time violations. Involved cells are:
+i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_clkws_gen/i_master_en_sync/r_reg_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_clkws_gen/i_master_en_sync/r_reg_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_clkws_gen/i_ws_gen_0/r_counter_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_clkws_gen/i_ws_gen_0/r_counter_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_clkws_gen/i_ws_gen_0/r_counter_reg[2], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_clkws_gen/i_ws_gen_0/r_counter_reg[3], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_clkws_gen/i_ws_gen_0/r_counter_reg[4], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_clkws_gen/i_ws_gen_0/r_word_counter_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_clkws_gen/i_ws_gen_0/r_word_counter_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_clkws_gen/i_ws_gen_0/r_word_counter_reg[2], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_clkws_gen/i_ws_gen_0/ws_o_reg
+Related violations: <none>
+
+PLHOLDVIO-2#9 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_clkws_gen/i_slave_cg/clk_o_INST_0 is driving clock pin of 275 cells. This could lead to large hold time violations. Involved cells are:
+i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_slave/r_ch0_valid_reg, i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_slave/r_ch1_valid_reg, i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_slave/r_count_bit_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_slave/r_count_bit_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_slave/r_count_bit_reg[2], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_slave/r_count_bit_reg[3], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_slave/r_count_bit_reg[4], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_slave/r_shiftreg_ch0_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_slave/r_shiftreg_ch0_reg[10], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_slave/r_shiftreg_ch0_reg[11], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_slave/r_shiftreg_ch0_reg[12], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_slave/r_shiftreg_ch0_reg[13], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_slave/r_shiftreg_ch0_reg[14], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_slave/r_shiftreg_ch0_reg[15], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_i2s_txrx/i_i2s_slave/r_shiftreg_ch0_reg[16] (the first 15 of 275 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#10 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_clkws_gen/pad_slave_sck_o_INST_0_i_1 is driving clock pin of 11 cells. This could lead to large hold time violations. Involved cells are:
+i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_clkws_gen/i_slave_en_sync/r_reg_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_clkws_gen/i_slave_en_sync/r_reg_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_clkws_gen/i_ws_gen_1/r_counter_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_clkws_gen/i_ws_gen_1/r_counter_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_clkws_gen/i_ws_gen_1/r_counter_reg[2], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_clkws_gen/i_ws_gen_1/r_counter_reg[3], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_clkws_gen/i_ws_gen_1/r_counter_reg[4], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_clkws_gen/i_ws_gen_1/r_word_counter_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_clkws_gen/i_ws_gen_1/r_word_counter_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_clkws_gen/i_ws_gen_1/r_word_counter_reg[2], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_clkws_gen/i_ws_gen_1/ws_o_reg
+Related violations: <none>
+
+PLHOLDVIO-2#11 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_sdio/u_clockgen/i_clk_gate/clk_o_INST_0 is driving clock pin of 540 cells. This could lead to large hold time violations. Involved cells are:
+i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_sdio/i_dc_fifo_tx/i_cdc_fifo/i_dst/gen_sync[0].i_sync/reg_q_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_sdio/i_dc_fifo_tx/i_cdc_fifo/i_dst/gen_sync[0].i_sync/reg_q_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_sdio/i_dc_fifo_tx/i_cdc_fifo/i_dst/gen_sync[1].i_sync/reg_q_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_sdio/i_dc_fifo_tx/i_cdc_fifo/i_dst/gen_sync[1].i_sync/reg_q_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_sdio/i_dc_fifo_tx/i_cdc_fifo/i_dst/gen_sync[2].i_sync/reg_q_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_sdio/i_dc_fifo_tx/i_cdc_fifo/i_dst/gen_sync[2].i_sync/reg_q_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_sdio/i_dc_fifo_tx/i_cdc_fifo/i_dst/i_spill_register/spill_register_flushable_i/gen_spill_reg.a_data_q_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_sdio/i_dc_fifo_tx/i_cdc_fifo/i_dst/i_spill_register/spill_register_flushable_i/gen_spill_reg.a_data_q_reg[10], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_sdio/i_dc_fifo_tx/i_cdc_fifo/i_dst/i_spill_register/spill_register_flushable_i/gen_spill_reg.a_data_q_reg[11], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_sdio/i_dc_fifo_tx/i_cdc_fifo/i_dst/i_spill_register/spill_register_flushable_i/gen_spill_reg.a_data_q_reg[12], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_sdio/i_dc_fifo_tx/i_cdc_fifo/i_dst/i_spill_register/spill_register_flushable_i/gen_spill_reg.a_data_q_reg[13], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_sdio/i_dc_fifo_tx/i_cdc_fifo/i_dst/i_spill_register/spill_register_flushable_i/gen_spill_reg.a_data_q_reg[14], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_sdio/i_dc_fifo_tx/i_cdc_fifo/i_dst/i_spill_register/spill_register_flushable_i/gen_spill_reg.a_data_q_reg[15], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_sdio/i_dc_fifo_tx/i_cdc_fifo/i_dst/i_spill_register/spill_register_flushable_i/gen_spill_reg.a_data_q_reg[16], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_sdio/i_dc_fifo_tx/i_cdc_fifo/i_dst/i_spill_register/spill_register_flushable_i/gen_spill_reg.a_data_q_reg[17] (the first 15 of 540 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#12 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_clockgen/i_clk_gate/clk_o_INST_0 is driving clock pin of 833 cells. This could lead to large hold time violations. Involved cells are:
+i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/genblk1[0].u_eot_ep/i_edge_propagator_ack/u_sync_clkb/i_pulp_sync/r_reg_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/genblk1[0].u_eot_ep/i_edge_propagator_ack/u_sync_clkb/i_pulp_sync/r_reg_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/genblk1[0].u_eot_ep/i_edge_propagator_ack/u_sync_clkb/serial_q_reg, i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/genblk1[1].u_eot_ep/i_edge_propagator_ack/u_sync_clkb/i_pulp_sync/r_reg_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/genblk1[1].u_eot_ep/i_edge_propagator_ack/u_sync_clkb/i_pulp_sync/r_reg_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/genblk1[1].u_eot_ep/i_edge_propagator_ack/u_sync_clkb/serial_q_reg, i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/genblk1[2].u_eot_ep/i_edge_propagator_ack/u_sync_clkb/i_pulp_sync/r_reg_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/genblk1[2].u_eot_ep/i_edge_propagator_ack/u_sync_clkb/i_pulp_sync/r_reg_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/genblk1[2].u_eot_ep/i_edge_propagator_ack/u_sync_clkb/serial_q_reg, i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/genblk1[3].u_eot_ep/i_edge_propagator_ack/u_sync_clkb/i_pulp_sync/r_reg_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/genblk1[3].u_eot_ep/i_edge_propagator_ack/u_sync_clkb/i_pulp_sync/r_reg_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/genblk1[3].u_eot_ep/i_edge_propagator_ack/u_sync_clkb/serial_q_reg, i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_dc_cmd/i_cdc_fifo/i_dst/gen_sync[0].i_sync/reg_q_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_dc_cmd/i_cdc_fifo/i_dst/gen_sync[0].i_sync/reg_q_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_dc_cmd/i_cdc_fifo/i_dst/gen_sync[1].i_sync/reg_q_reg[0] (the first 15 of 833 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#13 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[0].i_clk_gate_per/i_clk_gate/clk_o_INST_0 is driving clock pin of 171 cells. This could lead to large hold time violations. Involved cells are:
+i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_uart_gen[0].i_uart/i_ep_err_overflow/i_edge_propagator_ack/r_input_reg_reg, i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_uart_gen[0].i_uart/i_ep_err_overflow/i_edge_propagator_ack/sync_a_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_uart_gen[0].i_uart/i_ep_err_overflow/i_edge_propagator_ack/sync_a_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_uart_gen[0].i_uart/i_ep_err_parity/i_edge_propagator_ack/r_input_reg_reg, i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_uart_gen[0].i_uart/i_ep_err_parity/i_edge_propagator_ack/sync_a_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_uart_gen[0].i_uart/i_ep_err_parity/i_edge_propagator_ack/sync_a_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_uart_gen[0].i_uart/i_ep_event/i_edge_propagator_ack/r_input_reg_reg, i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_uart_gen[0].i_uart/i_ep_event/i_edge_propagator_ack/sync_a_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_uart_gen[0].i_uart/i_ep_event/i_edge_propagator_ack/sync_a_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_uart_gen[0].i_uart/r_uart_bits_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_uart_gen[0].i_uart/r_uart_bits_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_uart_gen[0].i_uart/r_uart_div_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_uart_gen[0].i_uart/r_uart_div_reg[10], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_uart_gen[0].i_uart/r_uart_div_reg[11], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_uart_gen[0].i_uart/r_uart_div_reg[12] (the first 15 of 171 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#14 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[0].i_clk_gate_sys/clk_o_INST_0 is driving clock pin of 224 cells. This could lead to large hold time violations. Involved cells are:
+i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_uart_gen[0].i_uart/i_ep_err_overflow/i_edge_propagator_ack/u_sync_clkb/i_pulp_sync/r_reg_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_uart_gen[0].i_uart/i_ep_err_overflow/i_edge_propagator_ack/u_sync_clkb/i_pulp_sync/r_reg_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_uart_gen[0].i_uart/i_ep_err_overflow/i_edge_propagator_ack/u_sync_clkb/serial_q_reg, i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_uart_gen[0].i_uart/i_ep_err_parity/i_edge_propagator_ack/u_sync_clkb/i_pulp_sync/r_reg_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_uart_gen[0].i_uart/i_ep_err_parity/i_edge_propagator_ack/u_sync_clkb/i_pulp_sync/r_reg_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_uart_gen[0].i_uart/i_ep_err_parity/i_edge_propagator_ack/u_sync_clkb/serial_q_reg, i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_uart_gen[0].i_uart/i_ep_event/i_edge_propagator_ack/u_sync_clkb/i_pulp_sync/r_reg_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_uart_gen[0].i_uart/i_ep_event/i_edge_propagator_ack/u_sync_clkb/i_pulp_sync/r_reg_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_uart_gen[0].i_uart/i_ep_event/i_edge_propagator_ack/u_sync_clkb/serial_q_reg, i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_uart_gen[0].i_uart/r_status_sync_reg[0][0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_uart_gen[0].i_uart/r_status_sync_reg[0][1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_uart_gen[0].i_uart/r_status_sync_reg[1][0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_uart_gen[0].i_uart/r_status_sync_reg[1][1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_uart_gen[0].i_uart/u_dc_fifo_rx/i_cdc_fifo/i_dst/gen_sync[0].i_sync/reg_q_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_uart_gen[0].i_uart/u_dc_fifo_rx/i_cdc_fifo/i_dst/gen_sync[0].i_sync/reg_q_reg[1] (the first 15 of 224 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#15 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[1].i_clk_gate_per/i_clk_gate/clk_o_INST_0 is driving clock pin of 32 cells. This could lead to large hold time violations. Involved cells are:
+i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_clockgen/i_clkdiv_cnt/clk_o_reg, i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_clockgen/i_clkdiv_cnt/r_counter_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_clockgen/i_clkdiv_cnt/r_counter_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_clockgen/i_clkdiv_cnt/r_counter_reg[2], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_clockgen/i_clkdiv_cnt/r_counter_reg[3], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_clockgen/i_clkdiv_cnt/r_counter_reg[4], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_clockgen/i_clkdiv_cnt/r_counter_reg[5], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_clockgen/i_clkdiv_cnt/r_counter_reg[6], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_clockgen/i_clkdiv_cnt/r_counter_reg[7], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_clockgen/i_clkdiv_cnt/r_target_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_clockgen/i_clkdiv_cnt/r_target_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_clockgen/i_clkdiv_cnt/r_target_reg[2], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_clockgen/i_clkdiv_cnt/r_target_reg[3], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_clockgen/i_clkdiv_cnt/r_target_reg[4], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_clockgen/i_clkdiv_cnt/r_target_reg[5] (the first 15 of 32 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#16 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[1].i_clk_gate_sys/clk_o_INST_0 is driving clock pin of 889 cells. This could lead to large hold time violations. Involved cells are:
+i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/genblk1[0].u_eot_ep/i_edge_propagator_ack/r_input_reg_reg, i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/genblk1[0].u_eot_ep/i_edge_propagator_ack/sync_a_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/genblk1[0].u_eot_ep/i_edge_propagator_ack/sync_a_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/genblk1[1].u_eot_ep/i_edge_propagator_ack/r_input_reg_reg, i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/genblk1[1].u_eot_ep/i_edge_propagator_ack/sync_a_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/genblk1[1].u_eot_ep/i_edge_propagator_ack/sync_a_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/genblk1[2].u_eot_ep/i_edge_propagator_ack/r_input_reg_reg, i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/genblk1[2].u_eot_ep/i_edge_propagator_ack/sync_a_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/genblk1[2].u_eot_ep/i_edge_propagator_ack/sync_a_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/genblk1[3].u_eot_ep/i_edge_propagator_ack/r_input_reg_reg, i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/genblk1[3].u_eot_ep/i_edge_propagator_ack/sync_a_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/genblk1[3].u_eot_ep/i_edge_propagator_ack/sync_a_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_cmd_fifo/i_fifo/buffer_reg[0][0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_cmd_fifo/i_fifo/buffer_reg[0][10], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_cmd_fifo/i_fifo/buffer_reg[0][11] (the first 15 of 889 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#17 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[2].i_clk_gate_per/i_clk_gate/clk_o_INST_0 is driving clock pin of 276 cells. This could lead to large hold time violations. Involved cells are:
+i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[0].i_i2c/genblk1[0].i_event_sync/i_edge_propagator_ack/u_sync_clkb/i_pulp_sync/r_reg_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[0].i_i2c/genblk1[0].i_event_sync/i_edge_propagator_ack/u_sync_clkb/i_pulp_sync/r_reg_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[0].i_i2c/genblk1[0].i_event_sync/i_edge_propagator_ack/u_sync_clkb/serial_q_reg, i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[0].i_i2c/genblk1[1].i_event_sync/i_edge_propagator_ack/u_sync_clkb/i_pulp_sync/r_reg_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[0].i_i2c/genblk1[1].i_event_sync/i_edge_propagator_ack/u_sync_clkb/i_pulp_sync/r_reg_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[0].i_i2c/genblk1[1].i_event_sync/i_edge_propagator_ack/u_sync_clkb/serial_q_reg, i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[0].i_i2c/genblk1[2].i_event_sync/i_edge_propagator_ack/u_sync_clkb/i_pulp_sync/r_reg_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[0].i_i2c/genblk1[2].i_event_sync/i_edge_propagator_ack/u_sync_clkb/i_pulp_sync/r_reg_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[0].i_i2c/genblk1[2].i_event_sync/i_edge_propagator_ack/u_sync_clkb/serial_q_reg, i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[0].i_i2c/genblk1[3].i_event_sync/i_edge_propagator_ack/u_sync_clkb/i_pulp_sync/r_reg_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[0].i_i2c/genblk1[3].i_event_sync/i_edge_propagator_ack/u_sync_clkb/i_pulp_sync/r_reg_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[0].i_i2c/genblk1[3].i_event_sync/i_edge_propagator_ack/u_sync_clkb/serial_q_reg, i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[0].i_i2c/i_dc_fifo_tx/i_cdc_fifo/i_dst/gen_sync[0].i_sync/reg_q_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[0].i_i2c/i_dc_fifo_tx/i_cdc_fifo/i_dst/gen_sync[0].i_sync/reg_q_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[0].i_i2c/i_dc_fifo_tx/i_cdc_fifo/i_dst/gen_sync[1].i_sync/reg_q_reg[0] (the first 15 of 276 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#18 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[2].i_clk_gate_sys/clk_o_INST_0 is driving clock pin of 395 cells. This could lead to large hold time violations. Involved cells are:
+i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[0].i_i2c/genblk1[0].i_event_sync/i_edge_propagator_ack/r_input_reg_reg, i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[0].i_i2c/genblk1[0].i_event_sync/i_edge_propagator_ack/sync_a_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[0].i_i2c/genblk1[0].i_event_sync/i_edge_propagator_ack/sync_a_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[0].i_i2c/genblk1[1].i_event_sync/i_edge_propagator_ack/r_input_reg_reg, i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[0].i_i2c/genblk1[1].i_event_sync/i_edge_propagator_ack/sync_a_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[0].i_i2c/genblk1[1].i_event_sync/i_edge_propagator_ack/sync_a_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[0].i_i2c/genblk1[2].i_event_sync/i_edge_propagator_ack/r_input_reg_reg, i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[0].i_i2c/genblk1[2].i_event_sync/i_edge_propagator_ack/sync_a_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[0].i_i2c/genblk1[2].i_event_sync/i_edge_propagator_ack/sync_a_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[0].i_i2c/genblk1[3].i_event_sync/i_edge_propagator_ack/r_input_reg_reg, i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[0].i_i2c/genblk1[3].i_event_sync/i_edge_propagator_ack/sync_a_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[0].i_i2c/genblk1[3].i_event_sync/i_edge_propagator_ack/sync_a_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[0].i_i2c/i_dc_fifo_tx/i_cdc_fifo/i_src/gen_sync[0].i_sync/reg_q_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[0].i_i2c/i_dc_fifo_tx/i_cdc_fifo/i_src/gen_sync[0].i_sync/reg_q_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[0].i_i2c/i_dc_fifo_tx/i_cdc_fifo/i_src/gen_sync[1].i_sync/reg_q_reg[0] (the first 15 of 395 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#19 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[3].i_clk_gate_per/i_clk_gate/clk_o_INST_0 is driving clock pin of 276 cells. This could lead to large hold time violations. Involved cells are:
+i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[1].i_i2c/genblk1[0].i_event_sync/i_edge_propagator_ack/u_sync_clkb/i_pulp_sync/r_reg_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[1].i_i2c/genblk1[0].i_event_sync/i_edge_propagator_ack/u_sync_clkb/i_pulp_sync/r_reg_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[1].i_i2c/genblk1[0].i_event_sync/i_edge_propagator_ack/u_sync_clkb/serial_q_reg, i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[1].i_i2c/genblk1[1].i_event_sync/i_edge_propagator_ack/u_sync_clkb/i_pulp_sync/r_reg_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[1].i_i2c/genblk1[1].i_event_sync/i_edge_propagator_ack/u_sync_clkb/i_pulp_sync/r_reg_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[1].i_i2c/genblk1[1].i_event_sync/i_edge_propagator_ack/u_sync_clkb/serial_q_reg, i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[1].i_i2c/genblk1[2].i_event_sync/i_edge_propagator_ack/u_sync_clkb/i_pulp_sync/r_reg_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[1].i_i2c/genblk1[2].i_event_sync/i_edge_propagator_ack/u_sync_clkb/i_pulp_sync/r_reg_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[1].i_i2c/genblk1[2].i_event_sync/i_edge_propagator_ack/u_sync_clkb/serial_q_reg, i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[1].i_i2c/genblk1[3].i_event_sync/i_edge_propagator_ack/u_sync_clkb/i_pulp_sync/r_reg_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[1].i_i2c/genblk1[3].i_event_sync/i_edge_propagator_ack/u_sync_clkb/i_pulp_sync/r_reg_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[1].i_i2c/genblk1[3].i_event_sync/i_edge_propagator_ack/u_sync_clkb/serial_q_reg, i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[1].i_i2c/i_dc_fifo_tx/i_cdc_fifo/i_dst/gen_sync[0].i_sync/reg_q_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[1].i_i2c/i_dc_fifo_tx/i_cdc_fifo/i_dst/gen_sync[0].i_sync/reg_q_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[1].i_i2c/i_dc_fifo_tx/i_cdc_fifo/i_dst/gen_sync[1].i_sync/reg_q_reg[0] (the first 15 of 276 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#20 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[3].i_clk_gate_sys/clk_o_INST_0 is driving clock pin of 395 cells. This could lead to large hold time violations. Involved cells are:
+i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[1].i_i2c/genblk1[0].i_event_sync/i_edge_propagator_ack/r_input_reg_reg, i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[1].i_i2c/genblk1[0].i_event_sync/i_edge_propagator_ack/sync_a_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[1].i_i2c/genblk1[0].i_event_sync/i_edge_propagator_ack/sync_a_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[1].i_i2c/genblk1[1].i_event_sync/i_edge_propagator_ack/r_input_reg_reg, i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[1].i_i2c/genblk1[1].i_event_sync/i_edge_propagator_ack/sync_a_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[1].i_i2c/genblk1[1].i_event_sync/i_edge_propagator_ack/sync_a_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[1].i_i2c/genblk1[2].i_event_sync/i_edge_propagator_ack/r_input_reg_reg, i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[1].i_i2c/genblk1[2].i_event_sync/i_edge_propagator_ack/sync_a_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[1].i_i2c/genblk1[2].i_event_sync/i_edge_propagator_ack/sync_a_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[1].i_i2c/genblk1[3].i_event_sync/i_edge_propagator_ack/r_input_reg_reg, i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[1].i_i2c/genblk1[3].i_event_sync/i_edge_propagator_ack/sync_a_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[1].i_i2c/genblk1[3].i_event_sync/i_edge_propagator_ack/sync_a_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[1].i_i2c/i_dc_fifo_tx/i_cdc_fifo/i_src/gen_sync[0].i_sync/reg_q_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[1].i_i2c/i_dc_fifo_tx/i_cdc_fifo/i_src/gen_sync[0].i_sync/reg_q_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2c_gen[1].i_i2c/i_dc_fifo_tx/i_cdc_fifo/i_src/gen_sync[1].i_sync/reg_q_reg[0] (the first 15 of 395 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#21 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[4].i_clk_gate_per/i_clk_gate/clk_o_INST_0 is driving clock pin of 32 cells. This could lead to large hold time violations. Involved cells are:
+i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_sdio/u_clockgen/i_clkdiv_cnt/clk_o_reg, i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_sdio/u_clockgen/i_clkdiv_cnt/r_counter_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_sdio/u_clockgen/i_clkdiv_cnt/r_counter_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_sdio/u_clockgen/i_clkdiv_cnt/r_counter_reg[2], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_sdio/u_clockgen/i_clkdiv_cnt/r_counter_reg[3], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_sdio/u_clockgen/i_clkdiv_cnt/r_counter_reg[4], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_sdio/u_clockgen/i_clkdiv_cnt/r_counter_reg[5], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_sdio/u_clockgen/i_clkdiv_cnt/r_counter_reg[6], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_sdio/u_clockgen/i_clkdiv_cnt/r_counter_reg[7], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_sdio/u_clockgen/i_clkdiv_cnt/r_target_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_sdio/u_clockgen/i_clkdiv_cnt/r_target_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_sdio/u_clockgen/i_clkdiv_cnt/r_target_reg[2], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_sdio/u_clockgen/i_clkdiv_cnt/r_target_reg[3], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_sdio/u_clockgen/i_clkdiv_cnt/r_target_reg[4], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_sdio/u_clockgen/i_clkdiv_cnt/r_target_reg[5] (the first 15 of 32 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#22 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[4].i_clk_gate_sys/clk_o_INST_0 is driving clock pin of 496 cells. This could lead to large hold time violations. Involved cells are:
+i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_sdio/error_int_sync/i_pulp_sync/r_reg_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_sdio/error_int_sync/i_pulp_sync/r_reg_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_sdio/error_int_sync/serial_q_reg, i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_sdio/i_dc_fifo_tx/i_cdc_fifo/i_src/gen_sync[0].i_sync/reg_q_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_sdio/i_dc_fifo_tx/i_cdc_fifo/i_src/gen_sync[0].i_sync/reg_q_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_sdio/i_dc_fifo_tx/i_cdc_fifo/i_src/gen_sync[1].i_sync/reg_q_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_sdio/i_dc_fifo_tx/i_cdc_fifo/i_src/gen_sync[1].i_sync/reg_q_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_sdio/i_dc_fifo_tx/i_cdc_fifo/i_src/gen_sync[2].i_sync/reg_q_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_sdio/i_dc_fifo_tx/i_cdc_fifo/i_src/gen_sync[2].i_sync/reg_q_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_sdio/i_dc_fifo_tx/i_cdc_fifo/i_src/gen_word[0].data_q_reg[0][0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_sdio/i_dc_fifo_tx/i_cdc_fifo/i_src/gen_word[0].data_q_reg[0][10], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_sdio/i_dc_fifo_tx/i_cdc_fifo/i_src/gen_word[0].data_q_reg[0][11], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_sdio/i_dc_fifo_tx/i_cdc_fifo/i_src/gen_word[0].data_q_reg[0][12], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_sdio/i_dc_fifo_tx/i_cdc_fifo/i_src/gen_word[0].data_q_reg[0][13], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_sdio/i_dc_fifo_tx/i_cdc_fifo/i_src/gen_word[0].data_q_reg[0][14] (the first 15 of 496 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#23 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[5].i_clk_gate_per/i_clk_gate/clk_o_INST_0 is driving clock pin of 101 cells. This could lead to large hold time violations. Involved cells are:
+i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_clkws_gen/i_clkgen0/r_clk_reg, i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_clkws_gen/i_clkgen0/r_clock_en_reg, i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_clkws_gen/i_clkgen0/r_counter_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_clkws_gen/i_clkgen0/r_counter_reg[10], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_clkws_gen/i_clkgen0/r_counter_reg[11], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_clkws_gen/i_clkgen0/r_counter_reg[12], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_clkws_gen/i_clkgen0/r_counter_reg[13], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_clkws_gen/i_clkgen0/r_counter_reg[14], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_clkws_gen/i_clkgen0/r_counter_reg[15], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_clkws_gen/i_clkgen0/r_counter_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_clkws_gen/i_clkgen0/r_counter_reg[2], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_clkws_gen/i_clkgen0/r_counter_reg[3], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_clkws_gen/i_clkgen0/r_counter_reg[4], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_clkws_gen/i_clkgen0/r_counter_reg[5], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/i_clkws_gen/i_clkgen0/r_counter_reg[6] (the first 15 of 101 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#24 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[5].i_clk_gate_sys/clk_o_INST_0 is driving clock pin of 249 cells. This could lead to large hold time violations. Involved cells are:
+i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/u_dc_fifo_rx/i_cdc_fifo/i_dst/gen_sync[0].i_sync/reg_q_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/u_dc_fifo_rx/i_cdc_fifo/i_dst/gen_sync[0].i_sync/reg_q_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/u_dc_fifo_rx/i_cdc_fifo/i_dst/gen_sync[1].i_sync/reg_q_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/u_dc_fifo_rx/i_cdc_fifo/i_dst/gen_sync[1].i_sync/reg_q_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/u_dc_fifo_rx/i_cdc_fifo/i_dst/gen_sync[2].i_sync/reg_q_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/u_dc_fifo_rx/i_cdc_fifo/i_dst/gen_sync[2].i_sync/reg_q_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/u_dc_fifo_rx/i_cdc_fifo/i_dst/i_spill_register/spill_register_flushable_i/gen_spill_reg.a_data_q_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/u_dc_fifo_rx/i_cdc_fifo/i_dst/i_spill_register/spill_register_flushable_i/gen_spill_reg.a_data_q_reg[10], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/u_dc_fifo_rx/i_cdc_fifo/i_dst/i_spill_register/spill_register_flushable_i/gen_spill_reg.a_data_q_reg[11], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/u_dc_fifo_rx/i_cdc_fifo/i_dst/i_spill_register/spill_register_flushable_i/gen_spill_reg.a_data_q_reg[12], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/u_dc_fifo_rx/i_cdc_fifo/i_dst/i_spill_register/spill_register_flushable_i/gen_spill_reg.a_data_q_reg[13], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/u_dc_fifo_rx/i_cdc_fifo/i_dst/i_spill_register/spill_register_flushable_i/gen_spill_reg.a_data_q_reg[14], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/u_dc_fifo_rx/i_cdc_fifo/i_dst/i_spill_register/spill_register_flushable_i/gen_spill_reg.a_data_q_reg[15], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/u_dc_fifo_rx/i_cdc_fifo/i_dst/i_spill_register/spill_register_flushable_i/gen_spill_reg.a_data_q_reg[16], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_i2s_udma/u_dc_fifo_rx/i_cdc_fifo/i_dst/i_spill_register/spill_register_flushable_i/gen_spill_reg.a_data_q_reg[17] (the first 15 of 249 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#25 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[6].i_clk_gate_sys/clk_o_INST_0 is driving clock pin of 251 cells. This could lead to large hold time violations. Involved cells are:
+i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_camera_if/u_dc_fifo/i_cdc_fifo/i_dst/gen_sync[0].i_sync/reg_q_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_camera_if/u_dc_fifo/i_cdc_fifo/i_dst/gen_sync[0].i_sync/reg_q_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_camera_if/u_dc_fifo/i_cdc_fifo/i_dst/gen_sync[1].i_sync/reg_q_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_camera_if/u_dc_fifo/i_cdc_fifo/i_dst/gen_sync[1].i_sync/reg_q_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_camera_if/u_dc_fifo/i_cdc_fifo/i_dst/gen_sync[2].i_sync/reg_q_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_camera_if/u_dc_fifo/i_cdc_fifo/i_dst/gen_sync[2].i_sync/reg_q_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_camera_if/u_dc_fifo/i_cdc_fifo/i_dst/gen_sync[3].i_sync/reg_q_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_camera_if/u_dc_fifo/i_cdc_fifo/i_dst/gen_sync[3].i_sync/reg_q_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_camera_if/u_dc_fifo/i_cdc_fifo/i_dst/i_spill_register/spill_register_flushable_i/gen_spill_reg.a_data_q_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_camera_if/u_dc_fifo/i_cdc_fifo/i_dst/i_spill_register/spill_register_flushable_i/gen_spill_reg.a_data_q_reg[10], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_camera_if/u_dc_fifo/i_cdc_fifo/i_dst/i_spill_register/spill_register_flushable_i/gen_spill_reg.a_data_q_reg[11], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_camera_if/u_dc_fifo/i_cdc_fifo/i_dst/i_spill_register/spill_register_flushable_i/gen_spill_reg.a_data_q_reg[12], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_camera_if/u_dc_fifo/i_cdc_fifo/i_dst/i_spill_register/spill_register_flushable_i/gen_spill_reg.a_data_q_reg[13], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_camera_if/u_dc_fifo/i_cdc_fifo/i_dst/i_spill_register/spill_register_flushable_i/gen_spill_reg.a_data_q_reg[14], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_camera_if/u_dc_fifo/i_cdc_fifo/i_dst/i_spill_register/spill_register_flushable_i/gen_spill_reg.a_data_q_reg[15] (the first 15 of 251 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#26 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[7].i_clk_gate_sys/clk_o_INST_0 is driving clock pin of 1542 cells. This could lead to large hold time violations. Involved cells are:
+i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_filter/i_reg_if/FSM_sequential_r_state_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_filter/i_reg_if/FSM_sequential_r_state_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_filter/i_reg_if/r_au_bypass_reg, i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_filter/i_reg_if/r_au_mode_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_filter/i_reg_if/r_au_mode_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_filter/i_reg_if/r_au_mode_reg[2], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_filter/i_reg_if/r_au_mode_reg[3], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_filter/i_reg_if/r_au_reg0_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_filter/i_reg_if/r_au_reg0_reg[10], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_filter/i_reg_if/r_au_reg0_reg[11], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_filter/i_reg_if/r_au_reg0_reg[12], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_filter/i_reg_if/r_au_reg0_reg[13], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_filter/i_reg_if/r_au_reg0_reg[14], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_filter/i_reg_if/r_au_reg0_reg[15], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_filter/i_reg_if/r_au_reg0_reg[16] (the first 15 of 1542 listed)
+Related violations: <none>
+
+PLHOLDVIO-2#27 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[8].i_clk_gate_per/i_clk_gate/clk_o_INST_0 is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_hyper/udma_hyperbus_i/ddr_clk/r_clk0_o_reg
+Related violations: <none>
+
+PLHOLDVIO-2#28 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/i_clk_gate_sys_udma/clk_o_INST_0 is driving clock pin of 1291 cells. This could lead to large hold time violations. Involved cells are:
+i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/u_rx_channels/genblk1[0].u_rx_ch_ctrl/r_addresses_reg[0], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/u_rx_channels/genblk1[0].u_rx_ch_ctrl/r_addresses_reg[10], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/u_rx_channels/genblk1[0].u_rx_ch_ctrl/r_addresses_reg[11], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/u_rx_channels/genblk1[0].u_rx_ch_ctrl/r_addresses_reg[12], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/u_rx_channels/genblk1[0].u_rx_ch_ctrl/r_addresses_reg[13], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/u_rx_channels/genblk1[0].u_rx_ch_ctrl/r_addresses_reg[14], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/u_rx_channels/genblk1[0].u_rx_ch_ctrl/r_addresses_reg[15], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/u_rx_channels/genblk1[0].u_rx_ch_ctrl/r_addresses_reg[16], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/u_rx_channels/genblk1[0].u_rx_ch_ctrl/r_addresses_reg[17], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/u_rx_channels/genblk1[0].u_rx_ch_ctrl/r_addresses_reg[18], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/u_rx_channels/genblk1[0].u_rx_ch_ctrl/r_addresses_reg[1], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/u_rx_channels/genblk1[0].u_rx_ch_ctrl/r_addresses_reg[2], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/u_rx_channels/genblk1[0].u_rx_ch_ctrl/r_addresses_reg[3], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/u_rx_channels/genblk1[0].u_rx_ch_ctrl/r_addresses_reg[4], i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/u_rx_channels/genblk1[0].u_rx_ch_ctrl/r_addresses_reg[5] (the first 15 of 1291 listed)
+Related violations: <none>
+
+REQP-1569#1 Warning
+connects_D  
+The FDCE cell i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_soc_ctrl/r_bootsel_reg[0] has no driver for the D input pin. To protect against unwanted transitions in all flows, the D input pin is required to have a driver. To resolve this violation, modify the design so that the D input pin has an active signal or constant logic-level tie-off.
+Related violations: <none>
+
+REQP-1569#2 Warning
+connects_D  
+The FDCE cell i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_apb_soc_ctrl/r_bootsel_reg[1] has no driver for the D input pin. To protect against unwanted transitions in all flows, the D input pin is required to have a driver. To resolve this violation, modify the design so that the D input pin has an active signal or constant logic-level tie-off.
+Related violations: <none>
+
+REQP-1839#1 Warning
+RAMB36 async control check  
+The RAMB36E1 i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0_0_0 has an input control pin i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0_0_0/ADDRARDADDR[14] (net: i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/addra[14]) which is driven by a register (i_pulpissimo/soc_domain_i/pulp_soc_i/apb2per_newdebug_i/CS_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#2 Warning
+RAMB36 async control check  
+The RAMB36E1 i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0_0_0 has an input control pin i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0_0_0/ADDRARDADDR[14] (net: i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/addra[14]) which is driven by a register (i_pulpissimo/soc_domain_i/pulp_soc_i/axi_master_cdc_i/i_cdc_fifo_gray_dst_b/i_spill_register/spill_register_flushable_i/gen_spill_reg.a_full_q_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#3 Warning
+RAMB36 async control check  
+The RAMB36E1 i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0_0_0 has an input control pin i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0_0_0/ADDRARDADDR[14] (net: i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/addra[14]) which is driven by a register (i_pulpissimo/soc_domain_i/pulp_soc_i/axi_master_cdc_i/i_cdc_fifo_gray_dst_b/i_spill_register/spill_register_flushable_i/gen_spill_reg.b_full_q_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#4 Warning
+RAMB36 async control check  
+The RAMB36E1 i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0_0_0 has an input control pin i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0_0_0/ADDRARDADDR[14] (net: i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/addra[14]) which is driven by a register (i_pulpissimo/soc_domain_i/pulp_soc_i/axi_master_cdc_i/i_cdc_fifo_gray_dst_r/i_spill_register/spill_register_flushable_i/gen_spill_reg.a_full_q_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#5 Warning
+RAMB36 async control check  
+The RAMB36E1 i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0_0_0 has an input control pin i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0_0_0/ADDRARDADDR[14] (net: i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/addra[14]) which is driven by a register (i_pulpissimo/soc_domain_i/pulp_soc_i/axi_master_cdc_i/i_cdc_fifo_gray_dst_r/i_spill_register/spill_register_flushable_i/gen_spill_reg.b_full_q_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#6 Warning
+RAMB36 async control check  
+The RAMB36E1 i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0_0_0 has an input control pin i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0_0_0/ADDRARDADDR[14] (net: i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/addra[14]) which is driven by a register (i_pulpissimo/soc_domain_i/pulp_soc_i/i_dm_top/i_dm_csrs/dmcontrol_q_reg[haltreq]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#7 Warning
+RAMB36 async control check  
+The RAMB36E1 i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0_0_0 has an input control pin i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0_0_0/ADDRARDADDR[14] (net: i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/addra[14]) which is driven by a register (i_pulpissimo/soc_domain_i/pulp_soc_i/i_dm_top/i_dm_csrs/dmcontrol_q_reg[hartsello][16]_rep) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#8 Warning
+RAMB36 async control check  
+The RAMB36E1 i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0_0_0 has an input control pin i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0_0_0/ADDRARDADDR[14] (net: i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/addra[14]) which is driven by a register (i_pulpissimo/soc_domain_i/pulp_soc_i/i_dm_top/i_dm_csrs/dmcontrol_q_reg[hartsello][17]_rep) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#9 Warning
+RAMB36 async control check  
+The RAMB36E1 i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0_0_0 has an input control pin i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0_0_0/ADDRARDADDR[14] (net: i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/addra[14]) which is driven by a register (i_pulpissimo/soc_domain_i/pulp_soc_i/i_dm_top/i_dm_csrs/dmcontrol_q_reg[hartsello][18]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#10 Warning
+RAMB36 async control check  
+The RAMB36E1 i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0_0_0 has an input control pin i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0_0_0/ADDRARDADDR[14] (net: i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/addra[14]) which is driven by a register (i_pulpissimo/soc_domain_i/pulp_soc_i/i_dm_top/i_dm_csrs/dmcontrol_q_reg[hartsello][19]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#11 Warning
+RAMB36 async control check  
+The RAMB36E1 i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0_0_0 has an input control pin i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0_0_0/ADDRARDADDR[14] (net: i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/addra[14]) which is driven by a register (i_pulpissimo/soc_domain_i/pulp_soc_i/i_dm_top/i_dm_csrs/dmcontrol_q_reg[hartsello][20]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#12 Warning
+RAMB36 async control check  
+The RAMB36E1 i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0_0_0 has an input control pin i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0_0_0/ADDRARDADDR[14] (net: i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/addra[14]) which is driven by a register (i_pulpissimo/soc_domain_i/pulp_soc_i/i_dm_top/i_dm_csrs/dmcontrol_q_reg[hartsello][21]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#13 Warning
+RAMB36 async control check  
+The RAMB36E1 i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0_0_0 has an input control pin i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0_0_0/ADDRARDADDR[14] (net: i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/addra[14]) which is driven by a register (i_pulpissimo/soc_domain_i/pulp_soc_i/i_dm_top/i_dm_csrs/dmcontrol_q_reg[hartsello][22]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#14 Warning
+RAMB36 async control check  
+The RAMB36E1 i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0_0_0 has an input control pin i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0_0_0/ADDRARDADDR[14] (net: i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/addra[14]) which is driven by a register (i_pulpissimo/soc_domain_i/pulp_soc_i/i_dm_top/i_dm_csrs/dmcontrol_q_reg[hartsello][23]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#15 Warning
+RAMB36 async control check  
+The RAMB36E1 i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0_0_0 has an input control pin i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0_0_0/ADDRARDADDR[14] (net: i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/addra[14]) which is driven by a register (i_pulpissimo/soc_domain_i/pulp_soc_i/i_dm_top/i_dm_csrs/dmcontrol_q_reg[hartsello][24]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#16 Warning
+RAMB36 async control check  
+The RAMB36E1 i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0_0_0 has an input control pin i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0_0_0/ADDRARDADDR[14] (net: i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/addra[14]) which is driven by a register (i_pulpissimo/soc_domain_i/pulp_soc_i/i_dm_top/i_dm_csrs/dmcontrol_q_reg[hartsello][25]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#17 Warning
+RAMB36 async control check  
+The RAMB36E1 i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0_0_0 has an input control pin i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0_0_0/ADDRARDADDR[14] (net: i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/addra[14]) which is driven by a register (i_pulpissimo/soc_domain_i/pulp_soc_i/i_dm_top/i_dm_csrs/sbaddr_q_reg[0]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#18 Warning
+RAMB36 async control check  
+The RAMB36E1 i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0_0_0 has an input control pin i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0_0_0/ADDRARDADDR[14] (net: i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/addra[14]) which is driven by a register (i_pulpissimo/soc_domain_i/pulp_soc_i/i_dm_top/i_dm_csrs/sbaddr_q_reg[10]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#19 Warning
+RAMB36 async control check  
+The RAMB36E1 i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0_0_0 has an input control pin i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0_0_0/ADDRARDADDR[14] (net: i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/addra[14]) which is driven by a register (i_pulpissimo/soc_domain_i/pulp_soc_i/i_dm_top/i_dm_csrs/sbaddr_q_reg[11]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#20 Warning
+RAMB36 async control check  
+The RAMB36E1 i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0_0_0 has an input control pin i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0_0_0/ADDRARDADDR[14] (net: i_pulpissimo/soc_domain_i/pulp_soc_i/l2_ram_i/CUTS[0].bank_i/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/addra[14]) which is driven by a register (i_pulpissimo/soc_domain_i/pulp_soc_i/i_dm_top/i_dm_csrs/sbaddr_q_reg[12]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+RTSTAT-10#1 Warning
+No routable loads  
+32 net(s) have no routable loads. The problem bus(es) and/or net(s) are i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_hyper/udma_hyperbus_i/phy_i/local_address[31:0].
+Related violations: <none>
+
+

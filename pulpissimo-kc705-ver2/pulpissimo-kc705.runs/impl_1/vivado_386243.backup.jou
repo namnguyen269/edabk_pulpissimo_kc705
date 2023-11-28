@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:39:14 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Sat Oct 21 09:01:52 2023
+# Process ID: 386243
+# Current directory: /home/nam/edabk_new_project/PULP/pulpissimo/fpga/pulpissimo-kc705-ver2/pulpissimo-kc705.runs/impl_1
+# Command line: vivado -log xilinx_pulpissimo.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source xilinx_pulpissimo.tcl -notrace
+# Log file: /home/nam/edabk_new_project/PULP/pulpissimo/fpga/pulpissimo-kc705-ver2/pulpissimo-kc705.runs/impl_1/xilinx_pulpissimo.vdi
+# Journal file: /home/nam/edabk_new_project/PULP/pulpissimo/fpga/pulpissimo-kc705-ver2/pulpissimo-kc705.runs/impl_1/vivado.jou
+#-----------------------------------------------------------
+source xilinx_pulpissimo.tcl -notrace
